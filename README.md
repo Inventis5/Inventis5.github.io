@@ -2,7 +2,8 @@
 
 # Reto 1 Chatbot 
 
-## Tema del chatbot (donde responderá las respuestas de ese tipo): **Astronomía** (sobre el espacio y los planetas) 
+## Tema del chatbot (donde responderá las respuestas de ese tipo): **Astronomía** (sobre el espacio y los planetas)
+### IAs para utilizar: 
 
 ### - Presentación corporativa (orientada a explicar la idea i el funcionamiento del chatbot a un público no técnico) 
 
@@ -12,7 +13,7 @@
 
 ## Portada: 
 
-### Reto 1, chatbot / nombre del chatbot 
+### Reto 1, chatbot / nombre del chatbot (*conocimiento astrologo*, *todo sobre el espacio*, *la sabiduria de las estrellas*)
 
 #### Hecho por **Mateu, Hugo, Stevan y Raül** 
 
