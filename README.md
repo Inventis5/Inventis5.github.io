@@ -3,7 +3,7 @@
 # Reto 1 Chatbot 
 
 ## Tema del chatbot (donde responderá las respuestas de ese tipo): **Astronomía** (sobre el espacio y los planetas)
-### IAs para utilizar: 
+### IAs para utilizar: tipo de chatbot: tramitaciones
 
 ### - Presentación corporativa (orientada a explicar la idea i el funcionamiento del chatbot a un público no técnico) 
 
@@ -38,3 +38,7 @@
 ## Referencias: 
 
 ### Lo que nos robamos
+
+
+#### datos robados:
+
