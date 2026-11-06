@@ -1,0 +1,39 @@
+{
+  "name": "nextjs-tramitabot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "ts-node ./scripts/loadDb.ts",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.109",
+    "@ai-sdk/react": "^0.0.70",
+    "@datastax/astra-db-ts": "^2.3.0",
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.3.5",
+    "@langchain/ollama": "^1.3.0",
+    "ai": "^3.4.33",
+    "dotenv": "^18.0.9",
+    "langchain": "^1.6.2",
+    "next": "16.4.5",
+    "ollama-ai-provider": "^1.2.0",
+    "openai": "^7.53.0",
+    "puppeteer": "^25.16.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5",
+    "typescript": "^5"
+  }
+}
