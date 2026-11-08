@@ -1,17 +1,15 @@
 "use client"
 import PromptSuggestionButton from "./PromptSuggestionButton"
 
-interface PromptSuggestionRowProps {
-  onPromptClick: (prompt: string) => void
-}
 
-const PromptSuggestionRow = ({ onPromptClick }: PromptSuggestionRowProps) => {
+
+const PromptSuggestionRow = ({ onPromptClick }) => {
   const prompts = [
-    "¿Cómo renuevo el Dni?",
+     "¿Cómo puedo empadronarme en Valencia?",
     "¿Qué trámites puedo hacer en la Generalitat Valenciana?",
     "¿Cómo solicito la tarjeta sanitaria?",
     "¿Qué certificado digital necesito para tributos?",
-  ]
+  ];
 
   return (
     <div className="prompt-suggestion-row">
@@ -23,7 +21,7 @@ const PromptSuggestionRow = ({ onPromptClick }: PromptSuggestionRowProps) => {
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default PromptSuggestionRow
+export default PromptSuggestionRow;

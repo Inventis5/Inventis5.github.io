@@ -12,13 +12,13 @@ const Home = () => {
   
   const noMessage = !messages || messages.length === 0
 
-  const handlePrompt = async (promptText: string) => {
+  const handlePrompt =  (promptText: string) => {
     const msg = {
       id: crypto.randomUUID(),
       content: promptText,
       role: 'user' as const,
     }
-    await append(msg)
+     append(msg)
   }
 
   return (
@@ -42,6 +42,7 @@ const Home = () => {
           </>
         )}
 
+      </section>
         <form onSubmit={handleSubmit}>
           <input
             className="question-box"
@@ -49,9 +50,8 @@ const Home = () => {
             value={input}
             placeholder="preguntame algo..."
           />
-          <input type="submit" value="Send" />
+          <input type="submit"/>
         </form>
-      </section>
     </main>
   )
 }

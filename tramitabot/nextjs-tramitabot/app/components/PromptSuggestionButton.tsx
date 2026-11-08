@@ -1,16 +1,10 @@
 "use client"
-
-interface PromptSuggestionButtonProps {
-  text: string
-  onClick: () => void
-}
-
-const PromptSuggestionButton = ({ text, onClick }: PromptSuggestionButtonProps) => {
+const PromptSuggestionButton = ({ text, onClick }) => {
   return (
     <button className="prompt-suggestion-button" onClick={onClick}>
       {text}
     </button>
-  )
-}
+  );
+};
 
-export default PromptSuggestionButton
+export default PromptSuggestionButton;
