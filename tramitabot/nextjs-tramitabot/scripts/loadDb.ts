@@ -6,6 +6,7 @@ import OpenAI from "openai"
 
 
 import "dotenv/config"
+import { resolve } from "path"
 
 type SimilarityMethod = "dot_product" | "cosine" | "euclidean"
 
@@ -21,23 +22,38 @@ const {
     //})
 
 const tramitabotData=[
-    'https://ceice.gva.es', 
-    'https://ceice.gva.es/es/web/becas-alumnat', 
-    'https://www.telematricula.es', 
-    'https://habitatge.gva.es', 
-    'https://habitatge.gva.es/es/web/vivienda-i-arquitectura-bioclimatica/ajudes', 
-    'https://labora.gva.es', 'https://labora.gva.es/es/ciutadania',
-     'https://labora.gva.es/es/cita-previa',
-      'https://www.sepe.es', 
-      'https://inclusio.gva.es',
-       'https://inclusio.gva.es/es/web/servicios-sociales',
-        'https://www.gva.es/es/inicio/procedimientos?id_proc=18535',
-         'https://san.gva.es',
-          'https://san.gva.es/es/web/portal-del-paciente',
-           'https://www.gva.es/es/inicio/procedimientos?id_proc=2751',
-            'https://sede.gva.es', 
-            'https://sede.gva.es/es/como-identificarse', 
-            'https://www.accv.es'
+   // LABORA (toda la Comunitat)
+  "https://labora.gva.es/es/ciutadania/busque-ocupacio/com-inscriuret/inscrpicio",
+  "https://labora.gva.es/es/ciutadania/busque-ocupacio/com-inscriuret/primera-inscripcio",
+  "https://labora.gva.es/es/consultas-frecuentes/inscripcio",
+  "https://labora.gva.es/es/ciutadania/busque-ocupacio/obligacions-dels-demandants-d-ocupacio",
+  "https://labora.gva.es/es/autoservef",
+  "https://labora.gva.es/es/ciutadania/busque-ocupacio/ofertes-labora/com-inscriures",
+  "https://labora.gva.es/es/sol-licitud-de-cita-previa-per-a-atencio-personalitzada",
+  // Becas (toda la Comunitat)
+  "https://www.gva.es/es/inicio/procedimientos?id_proc=G95885",
+  "https://universitats.gva.es/es/-/05-%C2%BFqu%C3%A9-requisitos-generales-se-deben-cumplir-para-ser-persona-beneficiaria-1",
+  "https://universitats.gva.es/es/manuela-solis/convocatoria",
+  "https://universitats.gva.es/es/finalitzacio-estudis/convocatoria",
+  "https://www.gva.es/es/inicio/procedimientos?id_proc=E242",
+  // Becas no universitarias (Bachillerato, FP, etc.)
+  "https://www.gva.es/es/inicio/procedimientos?id_proc=E242",
+  "https://sede.gva.es/es/detall-tramit?id_proc=E242",
+
+  // Empadronamiento / relacionados
+  "https://registrocivil.gva.es/es/vecindad-civil",
+  "https://sede.gva.es/es/detall-tramit?id_proc=21561",
+  "https://sede.gva.es/es/como-identificarse", 
+  "https://sede.valencia.es/sede/registro/procedimiento/pa.ce.10?lang=1",
+  // Obligaciones y servicios
+"https://labora.gva.es/es/ciutadania/busque-ocupacio/obligacions-dels-demandants-d-ocupacio",
+"https://labora.gva.es/es/autoservef",   // Qué es Punt LABORA
+"https://labora.gva.es/es/ciutadania/busque-ocupacio/ofertes-labora/com-inscriures", // Cómo inscribirse a ofertas
+"https://labora.gva.es/es/sol-licitud-de-cita-previa-per-a-atencio-personalitzada",
+
+// Formación y ayudas
+"https://labora.gva.es/es/ciutadania/busque-formacio/general",
+"https://labora.gva.es/va/ajudes-de-formacio/2026/-/asset_publisher/q6fDgmifQct4/content/becas-y-ayudas-para-las-personas-trabajadoras-desempleadas-que-participen-en-acciones-formativas-de-labo-1"
 ]
 
 const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN)
@@ -79,6 +95,7 @@ const loadSampleData= async () => {
     
     for await (const url of tramitabotData){
         console.log(`Procesando URL: ${url}`)
+        
         try{
         const content = await scrapePage(url)
         if (!content) continue
@@ -87,19 +104,25 @@ const loadSampleData= async () => {
         const chunks= await splitter.splitText(content)
 
         for await (const chunk of chunks){
-       
-            const vector= await embeddings.embedQuery(chunk)
+        if(chunk.trim().length < 50) continue
 
-            const res = await collection.insertOne({
+
+        const vector= await embeddings.embedQuery(chunk)
+
+        const res = await collection.insertOne({
                 $vector:vector,
-                text: chunk
+                text: chunk,
+                source:url
             })
             console.log("Insertando chunk:",res)
         }
-    }catch (err: any){
-        console.error(`Error al procesar la URL ${url}:`, err.message)
-        console.log("Continuando con la siguiente URL...")
-    }
+
+        await new Promise(resolve => setTimeout(resolve, 2000))
+
+        }catch (err: any){
+            console.error(`Error al procesar la URL ${url}:`, err.message)
+            console.log("Continuando con la siguiente URL...")
+        }
     }
 }
 
@@ -107,18 +130,22 @@ const loadSampleData= async () => {
 const scrapePage= async (url:string) => {
     const loader = new PuppeteerWebBaseLoader(url,{
         launchOptions:{
-            headless:true
+            headless:true,
+            args:["--no-sandbox","--disable-setuid-sandbox"]
         },
         gotoOptions:{
-            waitUntil:"domcontentloaded"
+            waitUntil:"networkidle2",
+            timeout: 60000
         },
         evaluate: async (page,browser)=>{
-            const result= await page.evaluate(()=> document.body.innerHTML)
+            const result= await page.evaluate(()=> document.body.innerText)
             await browser.close()
             return result
         }
     })
-    return (await loader.scrape())?.replace(/<[^>]*>?/gm, '')
+
+    const content= await loader.scrape()
+    return content?.replace(/\s+/g, " ").trim() || ""
 }
 
 
