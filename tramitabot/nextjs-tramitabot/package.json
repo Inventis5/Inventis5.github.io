@@ -22,6 +22,7 @@
     "next": "16.4.5",
     "ollama-ai-provider": "^1.2.0",
     "openai": "^7.53.0",
+    "pdf-parse": "^2.4.5",
     "puppeteer": "^25.16.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
