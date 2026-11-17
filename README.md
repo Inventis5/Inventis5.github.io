@@ -23,11 +23,19 @@
 
 ### (descripción breve del problema que hay que resolver y descripción de la idea general): 
 
-### **Ejemplo**: Bla bla, nos dimos cuenta de que la gente quiere una respuesta rápida y eficiente así que creamos esto para que puedan acceder rápidamente 
+### Siempre tenemos de vez de cuando una pregunta sobre el espaci como: se puede vivir en algun planeta (no), que pasa cuando muere una estrella, como de grandes son los plantas, puedo sobrevivir a un agujero negro(tampoco) así que decidimos crear un chatbot que te pueda responder a estas preguntas sin la necesidad de la información técnica e incomprensible para una persona normal, así entender mejor el espacio exterior lejano
+
 
 ## Diseño de la solución: 
 
 ### Descripción de la arquitectura: chatbot, fuente de datos, LLM... Lenguajes y tecnologías utilizadas. 
+
+### Chatbot: Ollama
+
+### Fuentes de datos:
+
+### LLM:
+
 
 ## Resultados (análisis de resultados obtenidos):  
 
