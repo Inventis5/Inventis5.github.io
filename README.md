@@ -5,9 +5,9 @@
 ## Tema del chatbot (donde responderá las respuestas de ese tipo): **Astronomía** (sobre el espacio y los planetas)
 ### IAs para utilizar: tipo de chatbot: tramitaciones
 
-### - Presentación corporativa (orientada a explicar la idea i el funcionamiento del chatbot a un público no técnico) 
+### - Presentación corporativa (orientada a explicar la idea i el funcionamiento del chatbot a un público no técnico)
 
-### - Presentación técnica (orientada a explicar el diseñado i la implementación del chatbot a un público técnica) 
+### - Presentación técnica (orientada a explicar el diseñado i la implementación del chatbot a un público técnica)
 
 ### - Memoria técnica, con una descripción del diseño y la implementación del chatbot, tecnología utilizada, despegamiento, etc... 
 
@@ -23,7 +23,8 @@
 
 ### (descripción breve del problema que hay que resolver y descripción de la idea general): 
  
-### Este chatbot te facilitar varios asuntos de tramitacion, asi facilitando una de las partes mas cansinas sobre papeleo y calculos abrumadoresf
+### Este chatbot te facilitar varios asuntos de tramitacion, asi facilitando una de las partes mas cansinas sobre papeleo y calculos abrumadores
+###J Gracias a este chatbot podras bajar un **(porcentaje)** de tiempo con los tramites, incluso si perfeccionamos esto y confias ciegamente en el chatbot no tendras que hacer nada
 
 ## Diseño de la solución: 
 
