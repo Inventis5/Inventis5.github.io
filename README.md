@@ -13,18 +13,17 @@
 
 ## Portada: 
 
-### Reto 1, chatbot / nombre del chatbot (*conocimiento astrologo*, *todo sobre el espacio*, *la sabiduria de las estrellas*)
+### Reto 1, chatbot / nombre del chatbot (*facilsoulion para que no se te queme el cerebro con los tramites*)
 
-#### Hecho por **Mateu, Hugo, Stevan y Raül** 
+#### Hecho por **Mateu, Hugo, Stevan** 
 
 #### (fecha) 
 
 ## Introducción 
 
 ### (descripción breve del problema que hay que resolver y descripción de la idea general): 
-
-### Siempre tenemos de vez de cuando una pregunta sobre el espaci como: se puede vivir en algun planeta (no), que pasa cuando muere una estrella, como de grandes son los plantas, puedo sobrevivir a un agujero negro(tampoco) así que decidimos crear un chatbot que te pueda responder a estas preguntas sin la necesidad de la información técnica e incomprensible para una persona normal, así entender mejor el espacio exterior lejano
-
+ 
+### Este chatbot te facilitar varios asuntos de tramitacion, asi facilitando una de las partes mas cansinas sobre papeleo y calculos abrumadoresf
 
 ## Diseño de la solución: 
 
@@ -32,9 +31,9 @@
 
 ### Chatbot: Ollama
 
-### Fuentes de datos:
+### Fuentes de datos: Varias paginas sobre tramites
 
-### LLM:
+### LLM: qwen 3.8
 
 
 ## Resultados (análisis de resultados obtenidos):  
@@ -43,10 +42,9 @@
 
 ## Conclusión: 
 
+### conclusión sobre este proyecto
+
 ## Referencias: 
 
-### Lo que nos robamos
-
-
-#### datos robados:
+### Pasos para crear el chatbot: Video de Youtube: https://www.youtube.com/watch?v=d-VKYF4Zow0
 
