@@ -17,14 +17,10 @@
 
 #### Hecho por **Mateu, Hugo, Stevan** 
 
-#### (fecha) 
-
 ## Introducción 
-
-### (descripción breve del problema que hay que resolver y descripción de la idea general): 
  
 ### Este chatbot te facilitar varios asuntos de tramitacion, asi facilitando una de las partes mas cansinas sobre papeleo y calculos abrumadores
-###J Gracias a este chatbot podras bajar un **(porcentaje)** de tiempo con los tramites, incluso si perfeccionamos esto y confias ciegamente en el chatbot no tendras que hacer nada
+### Gracias a este chatbot podras bajar un **(porcentaje)** de tiempo con los tramites, incluso si perfeccionamos esto y confias ciegamente en el chatbot no tendras que hacer nada
 
 ## Diseño de la solución: 
 
@@ -37,7 +33,7 @@
 ### LLM: qwen 3.8
 
 
-## Resultados (análisis de resultados obtenidos):  
+## Resultados:  
 
 ## Lo mejor sería conseguir fotos y arriba el texto explicando lo sucedido 
 
