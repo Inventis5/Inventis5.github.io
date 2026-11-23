@@ -44,6 +44,7 @@ const tramitabotData = [
     "https://sede.gva.es/es/detall-tramit?id_proc=21561",
     "https://sede.gva.es/es/como-identificarse",
     "https://sede.valencia.es/sede/registro/procedimiento/pa.ce.10?lang=1",
+    "https://vanguard-student-housing.com/es/empadronamiento-valencia-requisitos.html",
     // Obligaciones y servicios
     "https://labora.gva.es/es/ciutadania/busque-ocupacio/obligacions-dels-demandants-d-ocupacio",
     "https://labora.gva.es/es/autoservef",   // Qué es Punt LABORA

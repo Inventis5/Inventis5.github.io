@@ -35,8 +35,15 @@ section.populated{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    overflow:scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+section.populated .messages{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
 }
 
 starter-text{

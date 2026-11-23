@@ -2,15 +2,22 @@
 import Image from 'next/image'
 import tramitabot from './assets/tramitabot.webp' 
 import { useChat } from 'ai/react'
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Bubble from './components/Bubble'
 import LoadingBubble from './components/LoadingBubble'
 import PromptSuggestionRow from './components/PromptSuggestionRow'
 
 const Home = () => {
   const { messages, input, handleInputChange, handleSubmit, append, isLoading } = useChat()
-  
+  const chatRef = useRef<HTMLElement>(null)
+
   const noMessage = !messages || messages.length === 0
+
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight
+    }
+  }, [messages, isLoading])
 
   const handlePrompt =  (promptText: string) => {
     const msg = {
@@ -24,7 +31,7 @@ const Home = () => {
   return (
     <main>
       <Image src={tramitabot} width={250} alt="tramitabot Logo" />
-      <section className={noMessage ? "" : "populated"}>
+      <section ref={chatRef} className={noMessage ? "" : "populated"}>
         {noMessage ? (
           <>
             <p className="starter-text">
@@ -34,12 +41,12 @@ const Home = () => {
             <PromptSuggestionRow onPromptClick={handlePrompt} />
           </>
         ) : (
-          <>
+          <div className="messages">
             {messages.map((message, index) => (
               <Bubble key={`message-${index}`} message={message} />
             ))}
             {isLoading && <LoadingBubble />}
-          </>
+          </div>
         )}
 
       </section>
@@ -50,7 +57,7 @@ const Home = () => {
             value={input}
             placeholder="preguntame algo..."
           />
-          <input type="submit"/>
+          <input type="submit" value={"enviar"}/>
         </form>
     </main>
   )
