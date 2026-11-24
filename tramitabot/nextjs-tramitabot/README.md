@@ -1,19 +1,3 @@
----
-abstract: |
-  PDF és el format estàndar de distribució de documents. Com generar-los de manera professional.
-lang: ca
-titlepage: true
-titlepage-rule-height: 0
-titlepage-rule-color: 435488
-toc-own-page: true
-toc-title: Documentacion
-header-left: "Chat Bot"
-header-right: "Curso 2026-2027"
-footer-left: "IES Maria Enriquez"
-footer-right: "\\thepage/\\pageref{LastPage}"
-titlepage-background: /home/iamstevan/Files/Inventis5.github.io/tramitabot/nextjs-tramitabot/app/assets/Portada.jpg
----
-
 # TramitaBot - Documentación del Chatbot
 
 
