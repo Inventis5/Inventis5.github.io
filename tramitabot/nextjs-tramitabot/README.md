@@ -230,6 +230,18 @@ GROQ_API_KEY=                # API Key Groq Cloud (gsk_...)
 
 ---
 
+#### 4.4 Fotos
+
+**Base de datos vectorial (Astra DB):**
+
+![Base de datos vectorial Astra DB](app/assets/BD-astra.png)
+
+**Interfaz de TramitaBot:**
+
+![Interfaz de TramitaBot](app/assets/tramitabot.png)
+
+---
+
 ### 5. Conclusió (Conclusión)
 
 #### 5.1 Reflexión Crítica del Desarrollo
@@ -307,8 +319,8 @@ GROQ_API_KEY=                # API Key Groq Cloud (gsk_...)
 ```
 nextjs-tramitabot/
 ├── app/
-│   ├── api/chat/route.ts          # 🔥 Endpoint RAG principal (POST)
-│   ├── page.tsx                   # 🔥 UI Chat (useChat, streaming)
+│   ├── api/chat/route.ts          #  Endpoint RAG principal (POST)
+│   ├── page.tsx                   #  UI Chat (useChat, streaming)
 │   ├── components/
 │   │   ├── Bubble.tsx             # Burbuja mensaje (user/assistant)
 │   │   ├── LoadingBubble.tsx      # Animación loading 3 dots
@@ -320,7 +332,7 @@ nextjs-tramitabot/
 │   ├── layout.tsx                 # Root layout + fuentes Geist
 │   └── global.css                 # Estilos globales (burbujas, input, loader)
 ├── scripts/
-│   └── loadDb.ts                  # 🔥 Ingesta datos (scrape + PDF → Astra)
+│   └── loadDb.ts                  #  Ingesta datos (scrape + PDF → Astra)
 ├── docs/
 │   ├── guia1.pdf ... guia8.pdf    # 8 guías oficiales fuente
 ├── .env                           # Variables entorno (no commitear)
@@ -701,7 +713,3 @@ vercel --prod        # Variables de entorno en dashboard Vercel
 ```
 
 ---
-
-**TramitaBot** — *Haciendo accesible la administración valenciana, una pregunta a la vez.*
-
-*Documentación generada automáticamente para el Repte 1 Chatbot — Noviembre 2026*
